@@ -18,7 +18,7 @@ import { THEME } from './src/theme';
 
 import { Loading } from './src/components/Loading';
 
-import { Login } from './src/screens/Login';
+import { Home } from './src/screens/Home';
 
 export default function App() {
 
@@ -42,7 +42,7 @@ export default function App() {
         translucent
       /> 
 
-      { fontsLoaded ? <Login /> : <Loading /> } 
+      { fontsLoaded ? <Home /> : <Loading /> } 
     </NativeBaseProvider>
   );
 }
