@@ -6,6 +6,7 @@ import {
 } from "native-base";
 
 import logo from '../assets/logo.png';
+import { Button } from "../components/Button";
 
 import { CardTask } from "../components/CardTask";
 import { Header } from "../components/Header";
@@ -38,6 +39,7 @@ export function Home() {
 
       <ScrollView
         mt={8}
+        showsVerticalScrollIndicator={false}
       >
         <CardTask />
         <CardTask />
@@ -46,6 +48,11 @@ export function Home() {
         <CardTask />
         <CardTask />
       </ScrollView>
+
+      <Button 
+        title="Criar nova tarefa"
+        my={4}
+      />
     </VStack>
   )
 }

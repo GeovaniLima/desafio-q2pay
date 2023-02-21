@@ -18,7 +18,7 @@ import { THEME } from './src/theme';
 
 import { Loading } from './src/components/Loading';
 
-import { Home } from './src/screens/Home';
+import { NewTask } from './src/screens/NewTask';
 
 export default function App() {
 
@@ -42,7 +42,7 @@ export default function App() {
         translucent
       /> 
 
-      { fontsLoaded ? <Home /> : <Loading /> } 
+      { fontsLoaded ? <NewTask /> : <Loading /> } 
     </NativeBaseProvider>
   );
 }
