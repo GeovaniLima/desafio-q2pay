@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "431382222894",
+    "project_id": "q2pay-9db31",
+    "storage_bucket": "q2pay-9db31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431382222894:android:9790185a0385244810a7bf",
+        "android_client_info": {
+          "package_name": "com.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431382222894-0kfde4dqirp6ads9fbalfmujldcc6e1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDarI-SI35HTqvZzunZITEMsnr-MiZhQ2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431382222894-0kfde4dqirp6ads9fbalfmujldcc6e1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
