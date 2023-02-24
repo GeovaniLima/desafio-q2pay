@@ -1,17 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import { 
   VStack,
   Text,
-  Image,
   ScrollView
 } from "native-base";
 
-import logo from '../assets/logo.png';
 import { Button } from "../components/Button";
 
 import { CardTask } from "../components/CardTask";
 import { Header } from "../components/Header";
 
 export function Home() {
+  const navigation = useNavigation();
+  
+  function handleNewTask() {
+    navigation.navigate('newTask')
+  }
+
   return (
     <VStack
       flex={1}
@@ -51,6 +56,7 @@ export function Home() {
 
       <Button 
         title="Criar nova tarefa"
+        onPress={handleNewTask}
         my={4}
       />
     </VStack>

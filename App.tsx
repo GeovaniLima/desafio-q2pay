@@ -16,6 +16,7 @@ import {
 
 import { THEME } from './src/theme';
 
+import { Routes } from './src/routes';
 import { Loading } from './src/components/Loading';
 
 import { NewTask } from './src/screens/NewTask';
@@ -42,7 +43,7 @@ export default function App() {
         translucent
       /> 
 
-      { fontsLoaded ? <NewTask /> : <Loading /> } 
+      { fontsLoaded ? <Routes /> : <Loading /> } 
     </NativeBaseProvider>
   );
 }

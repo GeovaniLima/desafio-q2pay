@@ -1,8 +1,11 @@
+import React, { useState } from 'react';
+import { Alert } from 'react-native';
+import auth from '@react-native-firebase/auth';
 import { 
   Image,
   Text, 
   VStack,
-  Box 
+  Box
 } from "native-base";
 
 import logo from '../assets/logo.png';
@@ -11,6 +14,21 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
 export function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleSignIn() {
+    setIsLoading(true);
+
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        Alert.alert('Logado com sucesso!');
+      })
+      .catch((error) => console.log(error))
+  }
+
   return(
     <VStack
       flex={1}
@@ -44,18 +62,22 @@ export function Login() {
           placeholder='E-mail'
           keyboardType='email-address'
           autoCapitalize='none'
+          onChangeText={setEmail}
           mb={4}
         />
 
         <Input 
           placeholder='Senha'
           secureTextEntry
+          onChangeText={setPassword}
           autoCapitalize='none'
         />
       </Box>
 
       <Button 
         title="Entrar"
+        onPress={handleSignIn}
+        isLoading={isLoading}
       />
     </VStack>
   )
