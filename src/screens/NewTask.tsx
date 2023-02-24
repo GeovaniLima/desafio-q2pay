@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Alert } from 'react-native';
+import firestore  from '@react-native-firebase/firestore';
 import { 
   VStack, 
   Text,
@@ -9,6 +12,28 @@ import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 
 export function NewTask() {
+  const [description, setDescription] = useState('');
+  const [timeLimit, setTimeLimit] = useState('');
+  const [dateLimit, setDateLimit] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleNewTask() {
+    setIsLoading(true);
+
+    firestore()
+      .collection('tasks')
+      .add({
+        description,
+        timeLimit,
+        dateLimit,
+        status: 'open',
+        created_at: firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => Alert.alert("Nova Tarefa", "Tarefa criada com sucesso"))
+      .catch((error) => console.log(error))
+      .finally(() => setIsLoading(false));
+  }
+
   return(
     <VStack
       flex={1}
@@ -47,6 +72,7 @@ export function NewTask() {
         </Text>
         <Input 
           placeholder='Descrição tarefas'
+          onChangeText={setDescription}
         />
 
         <Text
@@ -60,6 +86,7 @@ export function NewTask() {
         </Text>
         <Input 
           placeholder='12:00'
+          onChangeText={setTimeLimit}
         />
 
         <Text
@@ -73,11 +100,14 @@ export function NewTask() {
         </Text>
         <Input 
           placeholder='12/01/2023'
+          onChangeText={setDateLimit}
         />
       </Box>
 
       <Button 
         title="Salvar tarefa"
+        isLoading={isLoading}
+        onPress={handleNewTask}
         mt={24}
       />
 

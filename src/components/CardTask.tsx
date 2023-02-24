@@ -10,7 +10,19 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export function CardTask() {
+type TaskProps = {
+  id: string;
+  description: string;
+  dateLimit: string;
+  status: string;
+  timeLimit: string;
+}
+
+type Props = {
+  data: TaskProps;
+}
+
+export function CardTask({ data }: Props) {
   return(
     <VStack
       height={140}
@@ -39,7 +51,7 @@ export function CardTask() {
           fontWeight="normal"
           fontSize="regular2"
         >
-          Texto da tarefa vindo do Firebase
+          {data.description}
         </Text>
         <TouchableOpacity>
           <Icon 
@@ -73,7 +85,7 @@ export function CardTask() {
           fontSize="regular2"
           mr={4}
         >
-          08:00
+          {data.timeLimit}
         </Text>
 
         <Icon 
@@ -87,7 +99,7 @@ export function CardTask() {
           color="text"
           fontSize="regular2"
         >
-          14/02
+          {data.dateLimit}
         </Text>
       </HStack>
 
